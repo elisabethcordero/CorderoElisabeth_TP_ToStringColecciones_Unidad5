@@ -109,5 +109,27 @@ public class Main {
         for (Pedido pedido : usuarioConMasPedidos.getPedidos()) {
             System.out.println(pedido);
         }
+
+        // ===== PUNTO 5: PRUEBA DE EQUALS =====
+        Producto cocaColaNueva = new Producto(11L, "Coca Cola 500ml", 1800.0, "Otra descripcion", 10, "otra.jpg", true);
+
+        System.out.println();
+        System.out.println("===== PRUEBA DE EQUALS =====");
+        System.out.println("Producto nuevo: " + cocaColaNueva);
+        System.out.println();
+
+        for (Producto producto : productos) {
+            boolean sonIguales = cocaColaNueva.equals(producto);
+            System.out.println("Comparado con '" + producto.getNombre() + "' -> equals: " + sonIguales);
+        }
+
+        System.out.println();
+        System.out.println("Mismo hashCode que la Coca Cola original? " + (cocaColaNueva.hashCode() == cocaCola.hashCode()));
+        System.out.println("Es el mismo objeto en memoria (==)? " + (cocaColaNueva == cocaCola));
+        System.out.println("La coleccion lo contiene (contains)? " + productos.contains(cocaColaNueva));
+
+        boolean seAgrego = productos.add(cocaColaNueva);
+        System.out.println("Se pudo agregar al Set? " + seAgrego);
+        System.out.println("Cantidad de productos en el Set: " + productos.size());
     }
 }
