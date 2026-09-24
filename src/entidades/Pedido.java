@@ -104,15 +104,19 @@ public class Pedido extends Base implements Calculable {
     // toString, equals y hashCode
     @Override
     public String toString() {
-        String texto = "Pedido{id=" + getId() +
-                ", fecha=" + fecha +
-                ", estado=" + estado +
-                ", formaPago=" + formaPago +
-                ", total=$" + total + "}";
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Pedido{id=").append(getId());
+        sb.append(", fecha=").append(fecha);
+        sb.append(", estado=").append(estado);
+        sb.append(", formaPago=").append(formaPago);
+        sb.append(", total=$").append(total).append("}");
+
         for (DetallePedido detalle : detalles) {
-            texto = texto + "\n    " + detalle;
+            sb.append("\n    ").append(detalle);
         }
-        return texto;
+
+        return sb.toString();
     }
 
     @Override
