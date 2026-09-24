@@ -76,6 +76,38 @@ public class Main {
         lucia.addPedido(pedido3);
         martin.addPedido(pedido2);
 
-        System.out.println("Datos cargados correctamente");
+
+        // ===== PUNTO 4: MOSTRAR POR CONSOLA =====
+
+        // a) Un producto
+        System.out.println("===== UN PRODUCTO =====");
+        System.out.println(cocaCola);
+
+        // b) Listado de productos cargados
+        System.out.println();
+        System.out.println("===== LISTADO DE PRODUCTOS =====");
+        for (Producto producto : productos) {
+            System.out.println(producto);
+        }
+
+        // c) Pedidos del usuario con más pedidos
+        Set<Usuario> usuarios = new LinkedHashSet<>();
+        usuarios.add(lucia);
+        usuarios.add(martin);
+
+        Usuario usuarioConMasPedidos = null;
+        for (Usuario usuario : usuarios) {
+            if (usuarioConMasPedidos == null
+                    || usuario.getPedidos().size() > usuarioConMasPedidos.getPedidos().size()) {
+                usuarioConMasPedidos = usuario;
+            }
+        }
+
+        System.out.println();
+        System.out.println("===== PEDIDOS DEL USUARIO CON MAS PEDIDOS =====");
+        System.out.println(usuarioConMasPedidos);
+        for (Pedido pedido : usuarioConMasPedidos.getPedidos()) {
+            System.out.println(pedido);
+        }
     }
 }
